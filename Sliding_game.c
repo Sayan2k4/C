@@ -6,12 +6,11 @@ int main() {
         {4, 5, 6},
         {7, 8, 0}
     };
-    int x = 2, y = 2; // Empty spot coordinates
+    int x = 2, y = 2; 
     int move;
     int temp, valid;
 
     while (1) {
-        // Print the grid
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (grid[i][j] == 0) {
@@ -23,30 +22,29 @@ int main() {
             printf("\n");
         }
 
-        // Get user move
         printf("Enter a number neighboring the empty spot to slide: ");
         scanf("%d", &move);
 
         valid = 0;
-        if (x > 0 && grid[x - 1][y] == move) {  // Check above
+        if (x > 0 && grid[x - 1][y] == move) {  
             valid = 1;
             temp = grid[x][y];
             grid[x][y] = grid[x - 1][y];
             grid[x - 1][y] = temp;
             x--;
-        } else if (x < 2 && grid[x + 1][y] == move) {  // Check below
+        } else if (x < 2 && grid[x + 1][y] == move) {  
             valid = 1;
             temp = grid[x][y];
             grid[x][y] = grid[x + 1][y];
             grid[x + 1][y] = temp;
             x++;
-        } else if (y > 0 && grid[x][y - 1] == move) {  // Check left
+        } else if (y > 0 && grid[x][y - 1] == move) {  
             valid = 1;
             temp = grid[x][y];
             grid[x][y] = grid[x][y - 1];
             grid[x][y - 1] = temp;
             y--;
-        } else if (y < 2 && grid[x][y + 1] == move) {  // Check right
+        } else if (y < 2 && grid[x][y + 1] == move) {  
             valid = 1;
             temp = grid[x][y];
             grid[x][y] = grid[x][y + 1];
